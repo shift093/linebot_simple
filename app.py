@@ -40,7 +40,10 @@ def handle_message(event):
         text = text[1:]
         re.split(r' ',text)
         content = ''
-        content=str(re.split(r' ',text))
+        #content=str(re.split(r' ',text))
+        value=0
+        value=float(text[0])*float(text[1])
+        content=str(value)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
