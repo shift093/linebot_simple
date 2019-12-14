@@ -41,7 +41,14 @@ def handle_message(event):
         content = ''
         content=text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+    elif(text.lower() == 'time'):
+        content = ''
+        content=str(time.localtime())
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+
 import os
+import time
+from datetime import timedelta, datetime
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
