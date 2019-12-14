@@ -38,18 +38,24 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
+        re.split(r' ',text)
         content = ''
-        content=text
+        content=str(re.split(r' ',text))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
         content=str(datetime.now(tz))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+    elif(text.lower() == 'help'):
+        content = '#金額 幾趴'
+        #content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
 import os
 import time
 from datetime import timedelta, datetime
 import pytz
+import re
 pytz.country_timezones('tw')
 tz = pytz.timezone('Asia/Taipei')
 if __name__ == "__main__":
