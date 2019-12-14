@@ -40,7 +40,7 @@ def handle_message(event):
         text = text[1:]
         content = ''
         content=text
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
