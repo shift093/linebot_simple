@@ -38,6 +38,7 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
+        content = ''
         content=text
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 import os
