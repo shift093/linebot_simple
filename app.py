@@ -43,7 +43,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
-        content=str(datetime.datetime.now(tz))
+        content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
 import os
