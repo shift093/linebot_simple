@@ -68,7 +68,7 @@ def handle_message(event):
         sum=0
         for i in range(len(text1)):
           sum=sum+int(text1[i])
-        count=sum
+        content=sum
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
