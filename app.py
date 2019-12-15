@@ -38,12 +38,10 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
-        re.split(r' ',text)
+        x,y=re.split(r' ',text)
         content = ''
         #content=str(re.split(r' ',text))
-        value=0
-        value=float(text[0])*float(text[1])
-        content=str(value)
+        content=str(float(x)*(float(y)/100.0+1))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
