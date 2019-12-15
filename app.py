@@ -50,7 +50,7 @@ def handle_message(event):
         content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'help'):
-        content = '#金額 幾趴'
+        content = '#金額 幾趴 幾天'
         #content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
