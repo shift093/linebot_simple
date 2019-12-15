@@ -45,6 +45,7 @@ def handle_message(event):
         y1=float(y)/100.0+1
         y0=float(y)/100.0
         content=str(x*y1)
+        content+="\n"
         content+=str(x*y0)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
