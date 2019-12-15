@@ -38,17 +38,23 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
-        x,y=re.split(r' ',text)
+        x,y,z=re.split(r' ',text)
         content = ''
         #content=str(re.split(r' ',text))
         x=int(x)
         y1=float(y)/100.0+1
         y0=float(y)/100.0
+        dt = datetime.now(tz).date()
+        #z=7
+        dtt = dt + timedelta(days = z)
         content=str(x*y1)
         content+="\n"
         content+=str(x*y0)
         content+="\n"
-        content+=str(datetime.now(tz))
+        content+="抓貓時間\t {}年 {}月 {}日 {}時".format(dt.year, dt.month, dt.day ,datetime.now(tz).hour)
+        content+='\n'
+        content+="賣貓時間\t {}年 {}月 {}日 {}時".format(dtt.year, dtt.month, dtt.day ,datetime.now(tz).hour)
+
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'time'):
         content = ''
@@ -66,6 +72,7 @@ import pytz
 import re
 pytz.country_timezones('tw')
 tz = pytz.timezone('Asia/Taipei')
+dt = datetime.now(tz).date()
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
