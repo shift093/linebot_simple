@@ -44,6 +44,7 @@ def handle_message(event):
         x=int(x)
         y1=float(y)/100.0+1
         y0=float(y)/100.0
+        z=int(z)
         dt = datetime.now(tz).date()
         #z=7
         dtt = dt + timedelta(days = z)
