@@ -48,9 +48,12 @@ def handle_message(event):
         dt = datetime.now(tz).date()
         #z=7
         dtt = dt + timedelta(days = z)
-        content=str(x*y1)
-        content+="\n"
-        content+=str(x*y0)
+        content+="貓咪價錢： {}".format(x)
+        content+="出售價錢： {}".format(str(x*y1))
+        content+="利潤： {}".format(str(x*y0))
+        #content+=str(x*y1)
+        #content+="\n"
+        #content+=str(x*y0)
         content+="\n"
         content+="抓貓時間\t {}年 {}月 {}日 {}時".format(dt.year, dt.month, dt.day ,datetime.now(tz).hour)
         content+='\n'
