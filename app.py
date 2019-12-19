@@ -55,7 +55,7 @@ def handle_message(event):
         content+="\n"
         content+="利潤：\t{}".format(str(x*y0))
         content+="\n"
-        content+="{}成：\t{}".format(str(x*y0*k/10.0))
+        content+="{}成：\t{}".format(k,str(x*y0*k/10.0))
         #content+=str(x*y1)
         #content+="\n"
         #content+=str(x*y0)
