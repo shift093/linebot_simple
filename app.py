@@ -38,13 +38,14 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
-        x,y,z=re.split(r' ',text)
+        x,y,z,k=re.split(r' ',text)
         content = ''
         #content=str(re.split(r' ',text))
         x=int(x)
         y1=float(y)/100.0+1
         y0=float(y)/100.0
         z=int(z)
+        k=int(k)
         dt = datetime.now(tz).date()
         #z=7
         dtt = dt + timedelta(days = z)
@@ -53,6 +54,8 @@ def handle_message(event):
         content+="出售價錢：\t{}".format(str(x*y1))
         content+="\n"
         content+="利潤：\t{}".format(str(x*y0))
+        content+="\n"
+        content+="{}成：\t{}".format(str(x*y0*k/10.0))
         #content+=str(x*y1)
         #content+="\n"
         #content+=str(x*y0)
@@ -75,7 +78,7 @@ def handle_message(event):
         content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'help'):
-        content = '#金額 幾趴 幾天'
+        content = '#金額 幾趴 幾天 幾成'
         #content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
