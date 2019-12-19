@@ -54,8 +54,9 @@ def handle_message(event):
         content+="出售價錢：\t{:06.2f}".format((x*y1))
         content+="\n"
         content+="利潤：\t{:06.2f}".format((x*y0))
-        content+="\n"
-        content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
+        if(k!=''):
+            content+="\n"
+            content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
         #content+=str(x*y1)
         #content+="\n"
         #content+=str(x*y0)
@@ -78,7 +79,7 @@ def handle_message(event):
         content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.lower() == 'help'):
-        content = '#金額 幾趴 幾天 幾成'
+        content = '#金額 幾趴 幾天 (幾成)'
         #content=str(datetime.now(tz))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
