@@ -49,13 +49,13 @@ def handle_message(event):
         dt = datetime.now(tz).date()
         #z=7
         dtt = dt + timedelta(days = z)
-        content+="貓咪價錢：\t{}".format(x)
+        content+="貓咪價錢：\t{:06.2f}".format(x)
         content+="\n"
-        content+="出售價錢：\t{}".format(str(x*y1))
+        content+="出售價錢：\t{:06.2f}".format((x*y1))
         content+="\n"
         content+="利潤：\t{:06.2f}".format((x*y0))
         content+="\n"
-        content+="{}成：\t{:06.2f}".format(k,(x*y0*k/10.0))
+        content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
         #content+=str(x*y1)
         #content+="\n"
         #content+=str(x*y0)
