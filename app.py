@@ -38,7 +38,10 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
-        x,y,z,k=re.split(r' ',text)
+        if(len(re.split(r' ',text)==4))
+            x,y,z,k=re.split(r' ',text)
+        else
+            k=0
         content = ''
         #content=str(re.split(r' ',text))
         x=int(x)
@@ -54,7 +57,7 @@ def handle_message(event):
         content+="出售價錢：\t{:06.2f}".format((x*y1))
         content+="\n"
         content+="利潤：\t{:06.2f}".format((x*y0))
-        if(k!=''):
+        if(k!=0):
             content+="\n"
             content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
         #content+=str(x*y1)
