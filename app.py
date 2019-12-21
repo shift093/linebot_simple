@@ -45,9 +45,11 @@ def handle_message(event):
             k=0
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text='重新輸入'))
-        content = ''
+            x=''
+        
         #content=str(re.split(r' ',text))
         if x!='':
+            content = ''
             x=int(x)
             y1=float(y)/100.0+1
             y0=float(y)/100.0
