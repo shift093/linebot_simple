@@ -47,14 +47,14 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text='重新輸入'))
         content = ''
         #content=str(re.split(r' ',text))
-        x=int(x)
-        y1=float(y)/100.0+1
-        y0=float(y)/100.0
-        z=int(z)
-        k=int(k)
-        dt = datetime.now(tz).date()
-        #z=7
-        dtt = dt + timedelta(days = z)
+        if x!='':
+            x=int(x)
+            y1=float(y)/100.0+1
+            y0=float(y)/100.0
+            z=int(z)
+            k=int(k)
+            dt = datetime.now(tz).date()
+            dtt = dt + timedelta(days = z)
         content+="貓咪價錢：\t{:06.2f}".format(x)
         content+="\n"
         content+="出售價錢：\t{:06.2f}".format((x*y1))
@@ -70,8 +70,8 @@ def handle_message(event):
         content+="抓貓時間\t {}年 {}月 {}日 {}時".format(dt.year, dt.month, dt.day ,datetime.now(tz).hour)
         content+='\n'
         content+="賣貓時間\t {}年 {}月 {}日 {}時".format(dtt.year, dtt.month, dtt.day ,datetime.now(tz).hour)
-
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        if x!='':
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.startswith('+')):
         text = text[1:]
         text1=re.split(r' ',text)
