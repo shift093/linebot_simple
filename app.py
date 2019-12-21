@@ -55,23 +55,23 @@ def handle_message(event):
             k=int(k)
             dt = datetime.now(tz).date()
             dtt = dt + timedelta(days = z)
-        content+="貓咪價錢：\t{:06.2f}".format(x)
-        content+="\n"
-        content+="出售價錢：\t{:06.2f}".format((x*y1))
-        content+="\n"
-        content+="利潤：\t{:06.2f}".format((x*y0))
-        if(k!=0):
+            content+="貓咪價錢：\t{:06.2f}".format(x)
             content+="\n"
-            content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
+            content+="出售價錢：\t{:06.2f}".format((x*y1))
+            content+="\n"
+            content+="利潤：\t{:06.2f}".format((x*y0))
+            if(k!=0):
+                content+="\n"
+                content+="{}成賺：\t{:06.2f}(轉{:06.2f})".format(k,(x*y0*k/10.0),((x*y1)-(x*y0*k/10.0)))
         #content+=str(x*y1)
         #content+="\n"
         #content+=str(x*y0)
-        content+="\n"
-        content+="抓貓時間\t {}年 {}月 {}日 {}時".format(dt.year, dt.month, dt.day ,datetime.now(tz).hour)
-        content+='\n'
-        content+="賣貓時間\t {}年 {}月 {}日 {}時".format(dtt.year, dtt.month, dtt.day ,datetime.now(tz).hour)
-        if x!='':
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+            content+="\n"
+            content+="抓貓時間\t {}年 {}月 {}日 {}時".format(dt.year, dt.month, dt.day ,datetime.now(tz).hour)
+            content+='\n'
+            content+="賣貓時間\t {}年 {}月 {}日 {}時".format(dtt.year, dtt.month, dtt.day ,datetime.now(tz).hour)
+            if x!='':
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     elif(text.startswith('+')):
         text = text[1:]
         text1=re.split(r' ',text)
