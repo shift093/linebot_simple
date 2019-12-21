@@ -41,6 +41,7 @@ def handle_message(event):
         if(len(re.split(r' ',text))==4):
             x,y,z,k=re.split(r' ',text)
         else:
+            x,y,z=re.split(r' ',text)
             k=0
         content = ''
         #content=str(re.split(r' ',text))
