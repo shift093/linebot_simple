@@ -38,7 +38,7 @@ def handle_message(event):
     text=event.message.text
     if(text.startswith('#')):
         text = text[1:]
-        if(len(re.split(r' ',text)==4)):
+        if(len(re.split(r' ',text))==4):
             x,y,z,k=re.split(r' ',text)
         else:
             k=0
