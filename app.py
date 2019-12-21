@@ -40,7 +40,7 @@ def handle_message(event):
         text = text[1:]
         if(len(re.split(r' ',text))==4):
             x,y,z,k=re.split(r' ',text)
-        else if(len(re.split(r' ',text))==3):
+        el if(len(re.split(r' ',text))==3):
             x,y,z=re.split(r' ',text)
             k=0
         else:
