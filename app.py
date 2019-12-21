@@ -45,7 +45,6 @@ def handle_message(event):
             k=0
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text='重新輸入'))
-            break
         content = ''
         #content=str(re.split(r' ',text))
         x=int(x)
